@@ -7,7 +7,7 @@ from mappers import map_post_dict_to_post_dto
 from post_to_txt_thread_executor import PostToTxtThreadExecutor
 
 @rpyc.service
-class RpcConvertPostsToJsonService(ConvertPostsToJsonService):
+class RpcConvertPostsToJsonService(ConvertPostsToJsonService, rpyc.Service):
     ''' RpcConvertPostsToJsonService class '''
 
     post_to_txt_thread_executor: PostToTxtThreadExecutor = None
@@ -30,7 +30,7 @@ class RpcConvertPostsToJsonService(ConvertPostsToJsonService):
         self._post_to_txt_thread_executor = value
 
     @rpyc.exposed
-    def execute(self, *args) -> None:
+    def convert_posts_to_json(self, *args) -> None:
         ''' Call convert posts to json concurrent routines '''
 
         posts_json = args[0][0]
