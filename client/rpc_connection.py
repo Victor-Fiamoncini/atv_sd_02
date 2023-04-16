@@ -20,7 +20,7 @@ class RpcConnection(Connection):
         return self.rpyc_connection
 
     def call_procedure(self, procedure_name: str, *args) -> None:
-        if not self.rpyc_connection:
+        if not self.rpyc_connection or not procedure_name:
             return
 
         procedure = getattr(self.rpyc_connection.root, procedure_name)
