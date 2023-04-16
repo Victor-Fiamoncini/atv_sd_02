@@ -105,5 +105,5 @@ venv.bak/
 .mypy_cache/
 
 # output files directory
-/output/*
-!/output/.gitkeep
+/server/output/*
+!/server/output/.gitkeep
