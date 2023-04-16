@@ -29,6 +29,8 @@ def main() -> None:
 
     print(f'Starting server at {SERVER_HOST}:{SERVER_PORT}')
 
+    remove_all_txt_files_from_output()
+
     file_handler = FileHandler()
     post_to_txt_thread_executor = PostToTxtThreadExecutor(file_handler)
     rpc_convert_posts_to_json_service = RpcConvertPostsToJsonService(post_to_txt_thread_executor)
