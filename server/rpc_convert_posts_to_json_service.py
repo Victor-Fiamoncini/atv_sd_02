@@ -17,18 +17,6 @@ class RpcConvertPostsToJsonService(ConvertPostsToJsonService, rpyc.Service):
 
         self.post_to_txt_thread_executor = post_to_txt_thread_executor
 
-    @property
-    def post_to_txt_thread_executor(self):
-        ''' PostToTxtThreadExecutor getter '''
-
-        return self._post_to_txt_thread_executor
-
-    @post_to_txt_thread_executor.setter
-    def post_to_txt_thread_executor(self, value):
-        ''' PostToTxtThreadExecutor setter '''
-
-        self._post_to_txt_thread_executor = value
-
     @rpyc.exposed
     def convert_posts_to_json(self, *args) -> None:
         ''' Call convert posts to json concurrent routines '''
